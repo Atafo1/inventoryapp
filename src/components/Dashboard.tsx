@@ -10,7 +10,7 @@ import danger from "../assets/triangle-alert.svg";
 
 import { NavLink } from "react-router";
 import { NavSection } from "./NavSection";
-import { MobileHeader } from "./mobileHeader";
+import { MobileHeader } from "./MobileHeader";
 import "./Dashboard.css";
 export function Dashboard() {
   

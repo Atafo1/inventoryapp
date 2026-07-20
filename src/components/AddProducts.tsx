@@ -7,7 +7,7 @@ import {  useState, } from "react";
 import { NavLink } from "react-router";
 import "./AddProducts.css";
 import { NavSection } from "./NavSection";
-import { MobileHeader } from "./mobileHeader";
+import { MobileHeader } from "./MobileHeader";
 export function AddProducts() {
 
 

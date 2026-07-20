@@ -8,7 +8,7 @@ import { supabase } from "../lib/supabase";
 import { NavLink } from "react-router";
 import "./EditProducts.css";
 import { NavSection } from "./NavSection";
-import { MobileHeader } from "./mobileHeader";
+import { MobileHeader } from "./MobileHeader";
 export function EditProducts() {
 
 
