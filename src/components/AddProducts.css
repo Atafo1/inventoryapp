@@ -1,0 +1,316 @@
+.Productpage-container {
+    height: 100vh;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+ .nav-section{
+    background-color: #182941;
+     display: grid;
+  grid-template-rows: auto 1fr ;
+}
+.AddProductsoverview-section{
+    padding-left:30px;
+} 
+ .upper-section{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   width: 100%;
+   
+} 
+.lower-section{
+   
+    align-self: end;
+}
+.upperone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    padding-left: 20px;
+}
+.uppertwo{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+.upperone-text{
+    color: white;
+    font-size: 10px;
+
+}
+.upperone-text span{
+    opacity: 0.7;
+    font-size: smaller;
+}
+.mainboxessix{
+    height: 20px;
+     margin-right: 3px;
+     padding: 5px;
+     border-radius: 7px;
+     background-color:#0354a4;
+}
+
+.icons{
+    height: 12px;
+    padding-right: 10px;
+    
+}
+hr{
+    width: 100%;
+   opacity: 0.3;  
+   margin: 0px;
+}
+.lowerone{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: small;
+}
+.lowerone span{
+    font-size: x-small;
+    opacity: 0.7;
+}
+.logout{
+   color: white;
+   width: 95%;
+   background-color: #182941;
+   border-radius: 6px;
+  
+   padding-top: 4px;
+   padding-bottom: 4px;
+  
+   border: 1px solid #182941;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: x-small;
+  
+}
+.logout :hover{
+    background-color: #4298FF;
+   border-radius: 6px;
+  
+}
+
+.logout img{
+    padding-right: 10px;
+    height: 13px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.logout span{
+    display: flex;
+    flex-direction: row;
+    opacity: 0.8;
+}
+.logout span:hover{
+    opacity: 1;
+}
+.lowerone{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: x-small;
+}
+.lowerone h3{
+    padding: 0px;
+    margin: 0px;
+}
+.profile{
+    height: 24px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.AddProductsoverview-section{
+    background-color:#f7fbfdcd ;
+    font-family:Arial, Helvetica, sans-serif;
+    padding-top: 30px;
+    padding-right: 15px;
+}
+.addproducts-formpartone{
+     display: grid;
+     grid-template-columns: 300px 300px;
+}
+.addproducts-formparttwo{
+     display: grid;
+     grid-template-columns: 300px 300px;
+}
+.input-one{
+    width:57%;
+    border:1px solid rgba(0,0,0,0.2);
+    padding:5px;
+}
+.input-two{
+    width:80%;
+    border:1px solid rgba(0,0,0,0.2);
+    padding:5px;
+}
+.input-three{
+    width:80%;
+    border:1px solid rgba(0,0,0,0.2);
+    padding: 5px;
+}
+.notes{
+    width:60%;
+    padding:10px;
+}
+.horizontal{
+    width:60%;
+    margin-top:10px;
+}
+.AddProduct-btn{
+    background-color:#0065CD;
+    border:1px solid #0065CD;
+    color:white;
+    padding:6px; 
+    border-radius:6px;
+    margin-right:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:"12px";
+    cursor:pointer;
+}
+.cancel-btn{
+    background-color:white;
+    border:1px solid black;
+    color:black;
+    padding:6px; 
+    border-radius:7px;
+    margin-right:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    cursor:pointer;
+}
+.mobile-headerfour{
+    display: none;
+}
+@media (max-width:768px){
+    .Productpage-container{
+      display: block;
+    }
+   
+.AddProducts-container{
+    display:block;
+     background:#F7FBFD;
+    
+}
+
+.nav-section{
+    display:none;
+}
+
+.AddProductsoverview-section{
+    padding-left:15px;
+}
+
+.AddProducts-Header h1{
+    font-size:32px;
+}
+
+.AddProducts-Header p:last-child{
+    font-size:18px;
+    line-height:1.5;
+    width:95%;
+}
+.addproducts-formpartone{
+     display: flex;
+     flex-direction: column;
+}
+.addproducts-formparttwo{
+     display: flex;
+     flex-direction: column;
+}
+.input-one{
+    height: 47px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.input-two{
+    height: 47px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.input-three{
+    height: 47px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.notes{
+      height: 47px;
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 9px;
+}
+.horizontal{
+    width:100%;
+    margin-top:10px;
+}
+.AddProduct-btn{
+   
+    padding:10px; 
+    border-radius:6px;
+    margin-right:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    cursor:pointer;
+}
+.cancel-btn{
+   
+    padding:10px; 
+    border-radius:6px;
+    margin-right:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    cursor:pointer;
+}
+.add-product-card{
+    padding:28px 18px;
+    border-radius:22px;
+}
+
+.add-product-form input{
+    width:100% !important;
+}
+
+.form-row{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.notes-box{
+    width:100%;
+}
+
+.add-product-form textarea{
+    width:100%;
+}
+
+.add-product-form hr{
+    width:100% !important;
+    margin-top:25px !important;
+}
+
+.form-buttons{
+    gap:18px;
+}
+
+.form-buttons button:first-child{
+    padding:12px 22px !important;
+    font-size:16px !important;
+}
+
+.form-buttons button:last-child{
+    background:none !important;
+    border:none !important;
+    padding:0 !important;
+    font-size:16px !important;
+}
+}
