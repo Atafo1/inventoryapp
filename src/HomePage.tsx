@@ -88,7 +88,7 @@ export function HomePage() {
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
                 padding: "3px",
-                borderRadius: "7px",
+                borderRadius: "8px",
               }}
             >
               <img src={mail} alt="Email icon" />
@@ -116,7 +116,7 @@ export function HomePage() {
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
                 padding: "3px",
-                borderRadius: "7px",
+                borderRadius: "8px",
               }}
             >
             <img src={lock}/>
