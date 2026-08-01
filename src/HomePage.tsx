@@ -87,7 +87,7 @@ export function HomePage() {
                 alignItems: "center",
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
-                padding: "3px",
+              
                 borderRadius: "7px",
               }}
             >
@@ -97,7 +97,7 @@ export function HomePage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{
-                  padding: "5px",
+                 marginLeft: "10px",
                   border: "1px solid white",
                   backgroundColor: "white",
                 }}
@@ -124,7 +124,7 @@ export function HomePage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              style={{ padding: "5px", border: "1px solid white" }}
+              style={{  marginLeft: "10px", border: "1px solid white" }}
             /></div>
             <br></br>
             <button className="signin-btn" type="submit">

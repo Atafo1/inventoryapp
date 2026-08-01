@@ -188,7 +188,16 @@ export function Dashboard() {
             <div className="recents">
               <div className="third-header">
                 <p className="paragraph">Recents Products</p>
-                <p>See all</p>
+                <NavLink
+                  to="/product"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    cursor: "pointer",
+                  }}
+                >
+                 <p>See all</p> 
+                </NavLink>
               </div>
               <div>
                 <div>
@@ -229,24 +238,24 @@ export function Dashboard() {
             <div className="stock">
               <p className="fourth-header">Low stock</p>
               <div>
-                  {lowStock.length === 0 ? (
-                      <div className="empty-recent-products">
-                        <h3>No product is low on stock </h3>
-                        <p>products with low stock will appear here.</p>
-
-                       
-                      </div>
-                    ) : (
-                lowStock.map((product) => (
-                  <div className="stockone" key={product.id}>
-                    <div className="stockone-first">
-                      <p className="stockone-first-p">{product.product_name}</p>
-                      <p className="mon">MON-27Q</p>
-                    </div>
-                    <p className="toast">{product.quantity} left</p>
+                {lowStock.length === 0 ? (
+                  <div className="empty-recent-products">
+                    <h3>No product is low on stock </h3>
+                    <p>products with low stock will appear here.</p>
                   </div>
-                )
-                ))}
+                ) : (
+                  lowStock.map((product) => (
+                    <div className="stockone" key={product.id}>
+                      <div className="stockone-first">
+                        <p className="stockone-first-p">
+                          {product.product_name}
+                        </p>
+                        <p className="mon">MON-27Q</p>
+                      </div>
+                      <p className="toast">{product.quantity} left</p>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>

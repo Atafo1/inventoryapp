@@ -100,7 +100,7 @@ export function Signup() {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 style={{
-                  padding: "5px",
+                   marginLeft: "10px",
                   border: "1px solid white",
                  
                 }}
@@ -118,7 +118,7 @@ export function Signup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{
-                  padding: "5px",
+                   marginLeft: "10px",
                   border: "1px solid white",
                  
                 }}
@@ -133,7 +133,7 @@ export function Signup() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{ padding: "5px", border: "1px solid white" }}
+                style={{ marginLeft: "10px", border: "1px solid white" }}
               />
             </div>
             <div className="pword-section">
@@ -145,7 +145,7 @@ export function Signup() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                style={{ padding: "5px", border: "1px solid white" }}
+                style={{  marginLeft: "10px", border: "1px solid white" }}
               />
             </div>
             <br></br>
