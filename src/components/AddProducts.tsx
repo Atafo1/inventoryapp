@@ -1,6 +1,7 @@
 
 import arrowleft from "../assets/arrow-left.svg";
 import save from "../assets/save (2).svg";
+import { toast } from "react-toastify";
 import { supabase } from "../lib/supabase";
 import { useNavigate } from "react-router";
 import {  useState, } from "react";
@@ -28,7 +29,7 @@ export function AddProducts() {
   quantity <= 0 ||
   price <= 0
 ) {
-  alert("Please fill in all required fields.");
+  toast("Please fill in all required fields.");
   return;
 }
 
@@ -37,7 +38,7 @@ export function AddProducts() {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      alert("Please log in.");
+      toast("Please log in.");
       return;
     }
 
@@ -54,11 +55,11 @@ export function AddProducts() {
    
 
     if (error) {
-      alert(error.message);
+      toast(error.message);
       return;
     }
 
-    alert("Product added successfully!");
+    toast("Product added successfully!");
 
     navigate("/product");
   }

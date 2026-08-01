@@ -3,6 +3,7 @@ import logout from "../assets/log-out-white.svg";
 import profilepic from "../assets/main profile pic.png";
 import boxes from "../assets/boxes-white.svg";
 import dashboard from "../assets/layout-dashboard-white.svg";
+import { toast } from "react-toastify";
 import {  useState,useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +16,7 @@ export function NavSection() {
   const { error } = await supabase.auth.signOut();
 
   if (error) {
-    alert(error.message);
+    toast(error.message);
     return;
   }
 

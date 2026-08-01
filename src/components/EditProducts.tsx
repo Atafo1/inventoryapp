@@ -9,6 +9,7 @@ import { NavLink } from "react-router";
 import "./EditProducts.css";
 import { NavSection } from "./NavSection";
 import { MobileHeader } from "./MobileHeader";
+import { toast } from "react-toastify";
 export function EditProducts() {
 
 
@@ -37,11 +38,11 @@ export function EditProducts() {
       .eq("id", id);
 
     if (error) {
-      alert(error.message);
+      toast(error.message);
       return;
     }
 
-    alert("Product updated successfully!");
+    toast("Product updated successfully!");
 
     navigate("/product");
   }
@@ -55,7 +56,7 @@ export function EditProducts() {
       .single();
 
     if (error) {
-      alert(error.message);
+      toast(error.message);
       return;
     }
 

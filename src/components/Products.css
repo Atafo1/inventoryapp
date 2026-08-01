@@ -170,6 +170,37 @@ hr{
   overflow-x: auto;
   overflow-y: hidden;
 }
+.empty-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-products h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.empty-products p {
+  margin: 0 0 20px;
+  opacity: 0.6;
+}
+
+.empty-add-btn {
+  background-color: #0065cd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 9px 20px;
+  cursor: pointer;
+}
+
+.empty-add-btn:hover {
+  background-color: #0055aa;
+}
 /* =======================
         MOBILE
 ======================= */

@@ -2,6 +2,7 @@ import "./Signup.css";
 import { supabase } from "../lib/supabase";
 import { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import boxes from "../assets/boxes-white.svg";
 import arrowright from "../assets/arrow-right-white (1).svg";
 import mail from "../assets/mail (1).svg";
@@ -16,7 +17,7 @@ export function Signup() {
 
   async function handleSignup() {
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      toast("Passwords do not match");
       return;
     }
 
@@ -26,7 +27,7 @@ export function Signup() {
     });
 
     if (error) {
-      alert(error.message);
+      toast(error.message);
       return;
     }
 
@@ -37,11 +38,11 @@ export function Signup() {
 
     if (profileError) {
       console.log(profileError);
-      alert(profileError.message);
+      toast(profileError.message);
       return;
     }
 
-    alert("Account created successfully!");
+    toast("Account created successfully!");
     navigate("/dashboard");
   }
   return (
@@ -90,9 +91,10 @@ export function Signup() {
               <h4 className="welcome">Create an account</h4>
               <p>Sign up to get started with your dashboard</p>
             </div>
-            <label>FullName</label>
-            <br />
-            <div className="form-style">
+            <div className="pword-section">
+              <p>FullName</p>
+            </div>
+            <div className="form-style" >
               <img src={profileicon} />
               <input
                 value={fullName}
@@ -100,14 +102,15 @@ export function Signup() {
                 style={{
                   padding: "5px",
                   border: "1px solid white",
-                  marginTop: "6px",
-                  marginBottom: "6px",
+                 
                 }}
               />
             </div>
 
-            <label>Email</label>
-            <br />
+          <div className="pword-section">
+              <p>Email</p>
+            </div>
+           
             <div className="form-style">
               <img src={mail} />
               <input
@@ -117,8 +120,7 @@ export function Signup() {
                 style={{
                   padding: "5px",
                   border: "1px solid white",
-                  marginTop: "6px",
-                  marginBottom: "6px",
+                 
                 }}
               />
             </div>

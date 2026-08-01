@@ -1,20 +1,17 @@
 import { supabase } from "../lib/supabase";
 import { useEffect, useState } from "react";
 
-
 import arrowup from "../assets/arrow-up-right.svg";
 import packageblue from "../assets/package (1).svg";
 import layers from "../assets/layers (1).svg";
 import dollar from "../assets/dollar-sign (1).svg";
 import danger from "../assets/triangle-alert.svg";
-
+import { Loader } from "./Loader";
 import { NavLink } from "react-router";
 import { NavSection } from "./NavSection";
 import { MobileHeader } from "./MobileHeader";
 import "./Dashboard.css";
 export function Dashboard() {
-  
-
   type Product = {
     id: string;
     user_id: string;
@@ -24,8 +21,9 @@ export function Dashboard() {
     quantity: number;
     created_at: string;
   };
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
- 
+
   const totalItems = products.reduce(
     (sum, product) => sum + product.quantity,
     0,
@@ -52,37 +50,45 @@ export function Dashboard() {
   //   getProfile();
   // }, []);
 
- useEffect(() => {
-  async function loadData() {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  useEffect(() => {
+    async function loadData() {
+      setLoading(true);
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
-    if (!user) return;
+      if (!user) {
+        setLoading(false);
+        return;
+      }
 
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", user.id)
-      .single();
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
 
-    setProfile(profile);
+      setProfile(profile);
 
-    const { data: products } = await supabase
-      .from("products")
-      .select("*")
-      .eq("user_id", user.id);
+      const { data: products } = await supabase
+        .from("products")
+        .select("*")
+        .eq("user_id", user.id);
 
-    setProducts(products ?? []);
+      setLoading(false);
+      setProducts(products ?? []);
+    }
+
+    loadData();
+  }, []);
+  if (loading) {
+    return <Loader />;
   }
-
-  loadData();
-}, []);
   return (
     <>
       <div className="dashboard-container">
         <NavSection />
-         <MobileHeader/>
+        <MobileHeader />
         <div className="dashboardoverview-section">
           <div className="second-header">
             <div className="second-headertexts">
@@ -92,14 +98,14 @@ export function Dashboard() {
             <div className="productbtn">
               <NavLink
                 to="/product"
-                style={{ textDecoration: "none",cursor: "pointer" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
               >
                 <button
-                  style={{ 
+                  style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    cursor:"pointer"
+                    cursor: "pointer",
                   }}
                 >
                   View products{" "}
@@ -162,7 +168,7 @@ export function Dashboard() {
             </div>
             <div className="overviewone">
               <p>
-                <span className="first-span">LOW STOCK ALERT</span>{" "}
+                <span className="first-span">LOW STOCK </span>{" "}
                 <span className="span">{lowStock.length}</span>
               </p>
               <img
@@ -187,19 +193,35 @@ export function Dashboard() {
               <div>
                 <div>
                   <div className="recentsone">
-                    {recentProducts.map((product) => (
-                      <div className="recentproducts" key={product.id}>
-                        <div className="recentstexts">
-                          <h1>{product.product_name}</h1>
-                          <p>{product.category}</p>
-                        </div>
+                    {recentProducts.length === 0 ? (
+                      <div className="empty-recent-products">
+                        <h3>No products yet</h3>
+                        <p>Add products to see them here.</p>
 
-                        <div className="recentstexts">
-                          <h1>₦{product.price.toLocaleString()}</h1>
-                          <p>{product.quantity} in stock</p>
-                        </div>
+                        <NavLink
+                          to="/product"
+                          style={{ textDecoration: "none" }}
+                        >
+                          <button className="go-products-btn">
+                            Go to Products
+                          </button>
+                        </NavLink>
                       </div>
-                    ))}
+                    ) : (
+                      recentProducts.map((product) => (
+                        <div className="recentproducts" key={product.id}>
+                          <div className="recentstexts">
+                            <h1>{product.product_name}</h1>
+                            <p>{product.category}</p>
+                          </div>
+
+                          <div className="recentstexts">
+                            <h1>₦{product.price.toLocaleString()}</h1>
+                            <p>{product.quantity} in stock</p>
+                          </div>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
@@ -207,14 +229,23 @@ export function Dashboard() {
             <div className="stock">
               <p className="fourth-header">Low stock</p>
               <div>
-                {lowStock.map((product) => (
+                  {lowStock.length === 0 ? (
+                      <div className="empty-recent-products">
+                        <h3>No product is low on stock </h3>
+                        <p>products with low stock will appear here.</p>
+
+                       
+                      </div>
+                    ) : (
+                lowStock.map((product) => (
                   <div className="stockone" key={product.id}>
                     <div className="stockone-first">
                       <p className="stockone-first-p">{product.product_name}</p>
                       <p className="mon">MON-27Q</p>
                     </div>
-                    <p className="alert">{product.quantity} left</p>
+                    <p className="toast">{product.quantity} left</p>
                   </div>
+                )
                 ))}
               </div>
             </div>

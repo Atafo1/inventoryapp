@@ -1,6 +1,7 @@
 import "./HomePage.css";
 import { supabase } from "./lib/supabase";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router-dom";
 import boxes from "./assets/boxes-white.svg";
 import arrowright from "./assets/arrow-right-white (1).svg";
@@ -19,7 +20,7 @@ export function HomePage() {
     });
 
     if (error) {
-      alert(error.message);
+      toast(error.message);
       return;
     }
 
@@ -28,7 +29,7 @@ export function HomePage() {
       return;
     }
 
-    alert("Login successful!");
+    toast("Login successful!");
   }
   return (
     <>
@@ -76,8 +77,10 @@ export function HomePage() {
               <h4 className="welcome">Welcome back</h4>
               <p>Sign in to continue to your Dashboard</p>
             </div>
-            <label>Email</label>
-            <br />
+            <div className="pword-section">
+              <p>Email</p>
+              </div>
+       
             <div
               style={{
                 display: "flex",

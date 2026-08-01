@@ -1,4 +1,3 @@
-
 import pencil from "../assets/pencil (2).svg";
 import trash from "../assets/trash-2 (1).svg";
 import search from "../assets/search (3).svg";
@@ -6,16 +5,12 @@ import plus from "../assets/plus (1).svg";
 import { supabase } from "../lib/supabase";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import { toast } from "react-toastify";
+import { Loader } from "./Loader";
 import "./Products.css";
 import { NavSection } from "./NavSection";
 import { MobileHeader } from "./MobileHeader";
 export function Products() {
-
-  
-
-  
-
-  
   type Product = {
     id: string;
     user_id: string;
@@ -26,14 +21,22 @@ export function Products() {
     price: number;
     created_at: string;
   };
+  const [loading, setLoading] = useState(true);
 
   const [products, setProducts] = useState<Product[]>([]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
   async function loadProducts() {
+    setLoading(true);
     const {
       data: { user },
     } = await supabase.auth.getUser();
 
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     const { data, error } = await supabase
       .from("products")
@@ -43,43 +46,49 @@ export function Products() {
 
     if (error) {
       console.log(error);
+      setLoading(false);
       return;
     }
 
     setProducts(data ?? []);
+    setLoading(false);
   }
- useEffect(() => {
-  
-
-  loadProducts();
-}, []);
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
   async function deleteProduct(id: string) {
-  const confirmDelete = window.confirm(
-    "Are you sure you want to delete this product?"
-  );
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?",
+    );
 
-  if (!confirmDelete) return;
+    if (!confirmDelete) return;
 
-  const { error } = await supabase
-    .from("products")
-    .delete()
-    .eq("id", id);
+    const { error } = await supabase.from("products").delete().eq("id", id);
 
-  if (error) {
-    alert(error.message);
-    return;
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+  toast.success("Product deleted successfully");
+
+    // Refresh the list after deleting
+    loadProducts();
   }
+  const filteredProducts = products.filter((product) => {
+    const search = searchTerm.toLowerCase();
 
-  // Refresh the list after deleting
-  loadProducts();
-}
-
+    return (
+      product.product_name.toLowerCase().includes(search) ||
+      product.sku.toLowerCase().includes(search) ||
+      product.category.toLowerCase().includes(search)
+    );
+  });
   return (
     <>
       <div className="Products-container">
-      <NavSection/>
-       <MobileHeader/>
+        <NavSection />
+        <MobileHeader />
         <div className="productoverview-section">
           <div className="Products-header">
             <div>
@@ -141,6 +150,8 @@ export function Products() {
                   style={{ width: "60%", border: "1px solid white" }}
                   type="text"
                   placeholder="Search by name ,SKU or category"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 ></input>
               </div>
             </div>
@@ -155,61 +166,79 @@ export function Products() {
                 <p>Actions</p>
               </div>
               <div className="Product-data">
-                {products.map((product) => (
-                  <div key={product.id}>
-                    <div className="Dataone">
-                      <p>{product.product_name}</p>
+                {loading ? (
+                  <Loader />
+                ) : products.length === 0 ? (
+                  <div className="empty-products">
+                    <h3>No products yet</h3>
+                    <p>Click "Add Products" to add your first product.</p>
 
-                      <p>{product.sku}</p>
+                    
+                  </div>
+                ) : filteredProducts.length === 0 ? (
+                  <div className="empty-products">
+                    <h3>No products found</h3>
+                    <p>
+                      No products match "<strong>{searchTerm}</strong>".
+                    </p>
+                  </div>
+                ) : (
+                  filteredProducts.map((product) => (
+                    <div key={product.id}>
+                      <div className="Dataone">
+                        <p>{product.product_name}</p>
 
-                      <p>{product.category}</p>
+                        <p>{product.sku}</p>
 
-                      <p>{product.quantity}</p>
+                        <p>{product.category}</p>
 
-                      <p>₦{product.price.toLocaleString()}</p>
+                        <p>{product.quantity}</p>
 
-                      <p>
-                        ₦{(product.price * product.quantity).toLocaleString()}
-                      </p>
+                        <p>₦{product.price.toLocaleString()}</p>
 
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "1fr 1fr",
-                          fontSize: "12px",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <NavLink
-                          style={{ color: "black", textDecoration: "none" }}
-                          to={`/editproducts/${product.id}`}
+                        <p>
+                          ₦{(product.price * product.quantity).toLocaleString()}
+                        </p>
+
+                        <div
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr",
+                            fontSize: "12px",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
                         >
-                          <p>
+                          <NavLink
+                            style={{ color: "black", textDecoration: "none" }}
+                            to={`/editproducts/${product.id}`}
+                          >
+                            <p>
+                              <img
+                                style={{ height: "12px", paddingRight: "5px" }}
+                                src={pencil}
+                              />
+                              Edit
+                            </p>
+                          </NavLink>
+
+                          <p
+                            style={{ color: "#f90101", cursor: "pointer" }}
+                            onClick={() => deleteProduct(product.id)}
+                          >
                             <img
                               style={{ height: "12px", paddingRight: "5px" }}
-                              src={pencil}
+                              src={trash}
                             />
-                            Edit
+                            Delete
                           </p>
-                        </NavLink>
-
-                        <p
-                          style={{ color: "#f90101", cursor: "pointer" }}
-                          onClick={() => deleteProduct(product.id)}
-                        >
-                          <img
-                            style={{ height: "12px", paddingRight: "5px" }}
-                            src={trash}
-                          />
-                          Delete
-                        </p>
+                        </div>
                       </div>
-                    </div>
 
-                    <hr />
-                  </div>
-                ))}
+                      <hr />
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>

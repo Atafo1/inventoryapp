@@ -96,9 +96,7 @@ body{
 .pword-section .fword{
     text-align: end;
 }
-form label{
-    font-size: small;
-}
+
 form input{
   width: 100%;
   border-radius: 5px;
@@ -112,6 +110,7 @@ form input{
                 border: 1px solid rgba(0,0,0,0.2);
                 padding: 3px;
                 border-radius: 8px;
+              
 }
 .account-section{
     display: flex;
@@ -227,6 +226,7 @@ form input{
   form label {
     font-size: 18px;
     font-weight: 600;
+    
   }
 
   .pword-section {
@@ -234,6 +234,7 @@ form input{
     margin-bottom: 8px;
     align-items: center;
   }
+ 
 
   .pword-section p {
     font-size: 18px;

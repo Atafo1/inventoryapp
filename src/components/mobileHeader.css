@@ -82,6 +82,7 @@
    align-items: center;
    padding-top: 4px;
    padding-bottom: 4px;
+   padding-right: 10px;
    margin-top: 8px;
    border: 1px solid #182941;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -97,6 +98,7 @@
    align-items: center;
    padding-top: 4px;
    padding-bottom: 4px;
+      padding-right: 10px;
    margin-top: 8px;
    border: 1px solid #182941;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -122,6 +124,7 @@
 .menu-dropdown{
     position:absolute;
     right:0;
+    left:10px;
     top:32px;
 
     background:white;
