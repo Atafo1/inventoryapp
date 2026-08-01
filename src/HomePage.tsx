@@ -87,7 +87,7 @@ export function HomePage() {
                 alignItems: "center",
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
-              
+                padding: "3px",
                 borderRadius: "7px",
               }}
             >
