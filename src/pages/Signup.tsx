@@ -158,9 +158,9 @@ export function Signup() {
             </button>
 
             <div className="account-section">
-              <p> Already have an account? </p>
+              <p className="acc"> Already have an account? </p>
               <NavLink to="/" className="link">
-                <p className="acc">Sign in</p>
+                <p>Sign in</p>
               </NavLink>
             </div>
           </form>

@@ -74,7 +74,7 @@ export function HomePage() {
           </div>
           <form onSubmit={handleLogin}>
             <div className="thehead">
-              <h4 className="welcome">Welcome back</h4>
+              <h4 className="welcomelogin">Welcome back</h4>
               <p>Sign in to continue to your Dashboard</p>
             </div>
             <div className="pword-section">
@@ -87,7 +87,7 @@ export function HomePage() {
                 alignItems: "center",
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
-                padding: "3px",
+                padding: "1px",
                 borderRadius: "8px",
               }}
             >
@@ -134,9 +134,9 @@ export function HomePage() {
               </div>
             </button>
             <div className="account-section">
-              <p> Don't have an account? </p>
+              <p className="acc"> Don't have an account? </p>
               <NavLink to="/signup" className="link">
-                <p className="acc">Get Started</p>
+                <p>Get Started</p>
               </NavLink>
             </div>
           </form>

@@ -75,7 +75,7 @@ body{
 .thehead{
     text-align: left;
 }
-.welcome{
+.welcomelogin{
     padding: 0px;
     padding-bottom: 5px;
     margin: 0px;
@@ -201,14 +201,15 @@ form label{
     margin-bottom: 25px;
   }
 
-  .welcome {
-    font-size: 42px;
-    margin-bottom: 10px;
+  .welcomelogin {
+    font-size: 26px;
+    text-align: left;
   }
 
   .thehead p {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.5;
+       padding-bottom: 0px;
   }
 
   form label {
@@ -223,7 +224,8 @@ form label{
   }
 
   .pword-section p {
-    font-size: 16px;
+     font-size: 15px;
+    font-weight: 300;
     margin: 0;
   }
 
@@ -235,11 +237,11 @@ form label{
 
   .signin-btn {
     width: 100%;
-    height: 60px;
-    margin-top: 30px;
-    border-radius: 16px;
-    font-size: 22px;
-    font-weight: 600;
+    height: 40px;
+   
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 400;
   }
 
   .btn-con {
@@ -248,13 +250,17 @@ form label{
 
   .account-section {
     justify-content: center;
-    margin-top: 28px;
-    font-size: 18px;
+     margin-top: 8px;
+    font-size: 15px;
+    
     gap: 5px;
     flex-wrap: wrap;
   }
+  .acc{
+    opacity: 0.7;
+  }
 
   .link {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
