@@ -87,11 +87,12 @@ export function HomePage() {
                 alignItems: "center",
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
+                boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.10)",
                 padding: "1px",
                 borderRadius: "8px",
               }}
             >
-              <img src={mail} alt="Email icon" />
+              <img className="icon" src={mail} alt="Email icon" />
               <input
                 type="email"
                 value={email}
@@ -115,11 +116,12 @@ export function HomePage() {
                 alignItems: "center",
                 backgroundColor: "white",
                 border: "1px solid rgba(0,0,0,0.2)",
+                  boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.10)",
                 padding: "3px",
                 borderRadius: "8px",
               }}
             >
-            <img src={lock}/>
+            <img className="icon" src={lock} alt="Password icon" />
             <input
               type="password"
               value={password}

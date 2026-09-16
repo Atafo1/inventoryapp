@@ -88,14 +88,14 @@ export function Signup() {
           </div>
           <form onSubmit={handleSignup}>
             <div className="thehead">
-              <h4 className="welcome">Create an account</h4>
+              <h4 className="welcomeSecond">Create an account</h4>
               <p>Sign up to get started with your dashboard</p>
             </div>
             <div className="pword-section">
               <p>FullName</p>
             </div>
             <div className="form-style" >
-              <img src={profileicon} />
+              <img className="icon" src={profileicon} alt="FullName icon" />
               <input
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
@@ -112,7 +112,7 @@ export function Signup() {
             </div>
            
             <div className="form-style">
-              <img src={mail} />
+              <img className="icon" src={mail} alt="Email icon" />
               <input
                 type="email"
                 value={email}
@@ -128,7 +128,7 @@ export function Signup() {
               <p>Password</p>
             </div>
             <div className="form-style">
-              <img src={lock} />
+              <img className="icon" src={lock} alt="Password icon" />
               <input
                 type="password"
                 value={password}
@@ -140,7 +140,7 @@ export function Signup() {
               <p>Confirm Password</p>
             </div>
             <div className="form-style">
-              <img src={lock} />
+              <img className="icon" src={lock} alt="Confirm Password icon" />
               <input
                 type="password"
                 value={confirmPassword}
