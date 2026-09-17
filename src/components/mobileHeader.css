@@ -9,7 +9,7 @@
         flex-direction: column;
         justify-content: space-between;
       position:relative;
-        padding: 18px;
+        padding: 10px 14px;
         background: white;
         width: 100%;
         box-sizing: border-box;
@@ -21,7 +21,7 @@
     position:relative;
 }
     .mobileupperone{
-    padding:0;
+    padding-left:15px;
     display:flex;
     flex-direction:row;
 
@@ -75,7 +75,7 @@
     cursor: pointer;
      color: black;
    width: 95%;
-   background-color: #DFE6EB;
+   background-color: white;
    border-radius: 6px;
    display: flex;
    flex-direction: row;
@@ -84,14 +84,21 @@
    padding-bottom: 4px;
    padding-right: 10px;
    margin-top: 8px;
-   border: 1px solid #182941;
+   border:none;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    font-size: smaller;
+}
+.dashicons {
+  filter: none;
+}
+
+.mobileactive-link .dashicons {
+  filter: brightness(0) invert(1);
 }
 .mobileactive-link button{
        color: white;
    width: 95%;
-   background-color: #4298FF;
+   background-color: #0065CD;
    border-radius: 6px;
    display: flex;
    flex-direction: row;
@@ -104,7 +111,11 @@
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    font-size: smaller;
 }
-
+.dashicons{
+    width: 20px;
+    height: 15px;
+    margin-right: 6px;
+}
  
 .mobile-nav-menu{
     padding-bottom: 10px;
@@ -113,6 +124,7 @@
 .menu-btn{
     border: none;
     background: transparent;
+    margin-top: 10px;
     cursor: pointer;
 }
 

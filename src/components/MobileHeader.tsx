@@ -83,7 +83,7 @@ export function MobileHeader() {
               }
             >
               <button className=" dashboardicons">
-                <img className="icons" src={dashboardblack}></img>Dashboard
+                <img className="dashicons" src={dashboardblack}></img>Dashboard
               </button>
             </NavLink>
 
@@ -99,7 +99,7 @@ export function MobileHeader() {
               }
             >
               <button className=" producticons">
-                <img className="icons" src={producticontwo}></img>Products
+                <img className="dashicons" src={producticontwo}></img>Products
               </button>
             </NavLink>
           </div>

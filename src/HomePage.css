@@ -143,8 +143,9 @@ form label{
 
 @media screen and (max-width: 768px) {
 
-  body {
+ .container {
     background: #F5F7FA;
+    margin-top: 50px;
   }
 
   .container {

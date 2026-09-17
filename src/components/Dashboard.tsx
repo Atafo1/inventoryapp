@@ -115,7 +115,7 @@ export function Dashboard() {
             </div>
           </div>
           <div className="overview-details">
-            <div className="overviewone">
+            <div className="overviewone .mobile-overviewone">
               <p>
                 <span className="first-span">TOTAL PRODUCTS</span>{" "}
                 <span className="span">{products.length}</span>
@@ -132,7 +132,7 @@ export function Dashboard() {
                 src={packageblue}
               ></img>
             </div>
-            <div className="overviewone">
+            <div className="overviewone .mobile-overviewone">
               <p>
                 <span className="first-span">ITEMS IN STOCK </span>
                 <span className="span">{totalItems}</span>
@@ -149,7 +149,7 @@ export function Dashboard() {
                 src={layers}
               ></img>
             </div>
-            <div className="overviewone">
+            <div className="overviewone .mobile-overviewone ">
               <p>
                 <span className="first-span"> INVENTORY VALUE</span>
                 <span className="span">₦{inventoryValue.toLocaleString()}</span>
@@ -166,7 +166,7 @@ export function Dashboard() {
                 src={dollar}
               ></img>
             </div>
-            <div className="overviewone">
+            <div className="overviewone .mobile-overviewone">
               <p>
                 <span className="first-span">LOW STOCK </span>{" "}
                 <span className="span">{lowStock.length}</span>
