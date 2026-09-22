@@ -191,11 +191,11 @@ export function EditProducts() {
               onClick={updateButton}
               className="AddProduct-btn"
             >
-              <img
-                style={{ height: "15px", paddingRight: "5px" }}
+              <img className="save-icon"
+                
                 src={save}
               ></img>
-              Edit Product
+              Save Changes
             </button>
             <button className="cancel-btn">Cancel</button>
             </div>

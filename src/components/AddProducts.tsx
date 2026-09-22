@@ -182,11 +182,11 @@ export function AddProducts() {
               onClick={addProduct}
               className="AddProduct-btn"
             >
-              <img
-                style={{ height: "15px", paddingRight: "5px" }}
+              <img className="save-icon"
+               
                 src={save}
               ></img>
-              Add Products
+              Add Product
             </button>
             <NavLink to="/product" style={{ textDecoration: "none" }}>
             <button className="cancel-btn" >Cancel</button>

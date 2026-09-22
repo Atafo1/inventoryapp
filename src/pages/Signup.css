@@ -158,7 +158,7 @@ form input{
 
   .container {
     background: #F5F7FA;
-    margin-top: 50px;
+    padding-top: 50px;
   }
 
   .container {
@@ -226,11 +226,7 @@ form input{
      padding-bottom: 0px;
   }
 
-  form label {
-    font-size: 18px;
-    font-weight: 600;
-    
-  }
+ 
 
   .pword-section {
     margin-top: 18px;

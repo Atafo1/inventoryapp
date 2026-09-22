@@ -97,16 +97,13 @@ export function Products() {
                 {products.length} items in your inventory
               </p>
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+            <div 
+             
             >
               <NavLink style={{ textDecoration: "none" }} to="/addproducts">
-                <button
+                <button className="addbtn"
                   style={{
+                    width:"100%",
                     backgroundColor: "#0065CD",
                     border: "1px solid #0065CD",
                     color: "white",

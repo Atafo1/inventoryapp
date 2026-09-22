@@ -279,7 +279,8 @@ hr{
     }
 
     .Products-header h1{
-        font-size:56px;
+        font-size:21px;
+        /* font-family: roboto, sans-serif; */
         margin-bottom:10px !important;
     }
 
@@ -287,16 +288,16 @@ hr{
         font-size:18px;
     }
 
-    .Products-header button{
-        width:100%;
+  
+    .addbtn{
+      width:100%;
         margin-top:28px;
         margin-right:0 !important;
-        justify-content:center;
+        /* justify-content:center; */
         padding:16px;
-        border-radius:18px !important;
+        border-radius:10px !important;
         font-size:22px;
     }
-
     /* Products card */
     .Products-Details{
         margin-top:40px;
