@@ -272,6 +272,10 @@ hr{
     .overview-section{
         padding:24px 16px 50px;
     }
+    .productoverview-section{
+    padding-left:15px;
+    padding-right:15px;
+} 
 
     /* Header */
     .Products-header{
